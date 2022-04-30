@@ -1,0 +1,142 @@
+{
+    # テストサイトの制御
+    'test_site':{
+        'BASE':False,
+        'JLounge':False,
+        'H.P.F':False,
+        'BAYSTORE':False,
+        'BRIEFING':False,
+        'FIVE FOXes':False,
+        'MAMMUT':False,
+        'ete':False,
+        'Jouete':False,
+        'CONSADOLE':False,
+        'ESTELLE':False,
+        'NOLLEYS':True,
+        'PMbox':False,
+        'TAMAYA':False,
+        'MCAND':False,
+        'harta ':False,
+    },
+
+    # デフォルトの設定(各サイトでは使用箇所の変更箇所のみ記載)
+    'default':{
+        'site_inf_set':{
+            # トップのURL
+            'home_url':'https://nolleys-mall.jp',
+
+            # webブラウザの指定 
+            'web_browser_select':{
+                'Chrome':true,
+                'Firefox':false,
+            },
+
+            # テスト画面の順番制御(キーは行う関数名。テストを行わない場合は-1)
+            'test_screen':{
+                # ログイン処理
+                'login':1,
+                # 商品一覧で購入商品を探す処理
+                'itemList':-1,
+                # 商品詳細でカートトップ遷移処理
+                'itemDetail':3,
+                # カートトップ→購入最終確認画面遷移処理
+                'cartTop':4,
+            },
+        
+            # 各種POSTデータ指定
+            'post_date':{
+                # ログインユーザメールアドレス
+                'user_email':'r.masuyama@diamondhead.tech',
+                # ログインユーザパスワード
+                'user_pass':'uigo5k9ii',
+            },
+
+            # 遷移指定用スラッグ
+            'move_slug':{
+                'login':'/login',
+                'item_list':'/items',
+                'cart_top':'/cart',
+            },
+
+            # 取得エレメントの管理
+            'get_element':{
+                # ログインIDエレメント
+                'login_id':'p-form-login__textfield',
+                # ログインパスワードエレメント
+                'login_pass':'c-password-input__field',
+                # ログインボタンエレメント
+                'login_botton':'//div[contains(@class,"p-form-login__button-container")]/div/button',
+
+                # アイテム一覧の各商品のリンクエレメント
+                'item_url' : '//div[contains(@class,"c-item-card__link")]/a',
+                # 商品詳細在庫確認エレメント
+                'item_check' : 'js-add-to-cart__form',
+
+                # カート投入ボタンクリックエレメント(商品詳細)
+                'cart_in_botton':'js-disable-double-click',
+
+                # カートトップ(購入最終確認画面遷移)
+                'move_to_final_screen':'js-cart-continue-to-checkout',
+                'cart_login_email':'//input[@id="email"]',
+                'cart_login_pass':'//input[@id="password"]',
+                'login_after_move':'//div[contains(@class,"form-group")]/button',
+            },
+            'get_text':{
+                'cart_in':'カートに入れる',
+            },
+        },
+
+        # webdriverのオプションなどを設定
+        'webdrive_inf_set':{
+            # webmanagerを設定(不変)
+            'web_browser_manager':{
+                'Chrome':{
+                    'import_name':'chrome',
+                    'import_manager':'ChromeDriverManager',
+                },
+                'Firefox':{
+                    'import_name':'firefox',
+                    'import_manager':'GeckoDriverManager',
+                },
+            },
+            # Opthons()に加える設定を'--'を除いてキーに指定
+            'opthions':{
+                # シークレットモードで起動
+                'incognito':true,
+                # ヘッダーレス(ブラウザ画面を表示させずに)起動
+                'headless':false,
+                # headless時に指定しないと要素が取れないためheadlessがtrueの時はtrue
+                'window-size=1920,1080':true,
+                # dockerでエラーが出ないようにする
+                'no-sandbox':true,
+                # 設定するとchromeの情報から状態を保持できるらしい(reCAPTCHA対策?パスはchromeでchrome://versionを見る)
+                'user-data-dir=パスを指定':false,
+                # user-data-dirを使う際にポートを指定しないとエラーになる
+                'remote-debugging-port=9222':true,
+            },
+            # driverに加える設定を'()'を除いた関数名でキーに指定
+            'driver_opthions':{
+                # 画面最大化
+                'maximize_window':false
+            }
+        },
+    },
+
+    # 各サイトでdefaltと異なる要素だけ指定(defaltはnllysで調節)
+    'BASE':{},
+    'JLounge':{},
+    'H.P.F':{},
+    'BAYSTORE':{},
+    'BRIEFING':{},
+    'FIVE FOXes':{},
+    'MAMMUT':{},
+    'ete':{},
+    'Jouete':{},
+    'CONSADOLE':{},
+    'ESTELLE':{},
+    'NOLLEYS':{},
+    'PMbox':{},
+    'TAMAYA':{},
+    'MCAND':{},
+    'harta ':{},
+}
